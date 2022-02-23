@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Header from "../../components/Header/Header";
 
 const Album = () => {
   return (
-    <div>Album</div>
-  )
-}
+    <>
+      <Header title="Album" />
+    </>
+  );
+};
 
-export default Album
+export default Album;

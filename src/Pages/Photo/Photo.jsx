@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from '../../components/Header/Header'
 
 const Photo = () => {
   return (
-    <div>Photo</div>
+      <>
+      <Header title="Photos"/>
+      </>
   )
 }
 

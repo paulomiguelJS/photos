@@ -8,7 +8,7 @@ const MainRoutes = () => {
   return useRoutes([
     { path: "/", element: <Home /> },
     { path: "/album", element: <Album /> },
-    { path: "/photo", element: <Photo /> },
+    { path: "/photos", element: <Photo /> },
   ]);
 };
 
