@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { AlbumItem } from "../../components/AlbumItem";
 import Header from "../../components/Header/Header";
 import { api } from "../../services/api";
 
@@ -17,12 +18,10 @@ const Home = () => {
 
   return (
     <>
-      <Header title="Photos Galery" />
-      <ul>
-        {albums.map((item, index) =>(
-          <li className="border m-3 p-7 rounded" key={index}>{item.title}</li>
-        ))}
-      </ul>
+      <Header title="Album Galery" />
+      {albums.map((item, index) => (
+        <AlbumItem key={index} id={item.id} title={item.title} />
+      ))}
     </>
   );
 };
