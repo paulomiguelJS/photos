@@ -7,10 +7,10 @@ const Home = () => {
 
   useEffect(() => {
     getAlbums();
-  }, [0]);
+  }, []);
 
   const getAlbums = async () => {
-    let data = await api.getAlbuns();
+    let data = await api.getAlbums();
     console.log(data);
     setAlbums(data);
   };
