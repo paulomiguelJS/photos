@@ -1,35 +1,45 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import Header from '../../components/Header/Header'
-import { api } from '../../services/api'
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import Button from "../../components/Button";
+import Header from "../../components/Header/Header";
+import { api } from "../../services/api";
 
 const Photo = () => {
+  const params = useParams();
+  const navigate = useNavigate();
 
-const params = useParams()
+  const [photo, setPhoto] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-const [photo, setPhoto] = useState([])
+  useEffect(() => {
+    if (params.id) {
+      getPhoto(params.id);
+    }
+  }, []);
 
+  const getPhoto = async (id) => {
+    setLoading(true);
+    const photo = await api.getPhoto(id);
+    setPhoto(photo);
+    setLoading(false);
+  };
 
-useEffect(() => {
-  if(params.id) {
-    getPhoto(params.id)
-  }
-}, [])
-
-const getPhoto = async (id) => {
-  const photo = await api.getPhoto(id)
-  console.log(photo)
-  setPhoto(photo)
-}
+  const handleBackButton = () => navigate(-1);
 
   return (
-      <>  
-      <Header title="Photos"/>
+    <>
+      {loading && "Loading..."}
+      {photo && (
+        <>
+          <Header title="Photos" />
+          <Button title="Back" onClick={handleBackButton} />
 
-      <h1>{photo.title}</h1>
-      <img src={photo.url} alt={photo.title} />
-      </>
-  )
-}
+          <h1>{photo.title}</h1>
+          <img src={photo.url} alt={photo.title} />
+        </>
+      )}
+    </>
+  );
+};
 
-export default Photo
+export default Photo;
