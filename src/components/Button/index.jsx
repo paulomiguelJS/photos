@@ -4,7 +4,7 @@ const Button  = ({title, onClick}) => {
 
 
   return (
-      <button onClick={onClick}>{title}</button>
+      <button className='text-2xl m-2 bg-gray-700 p-3 rounded' onClick={onClick}>{title}</button>
   )
 }
 

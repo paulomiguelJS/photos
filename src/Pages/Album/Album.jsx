@@ -7,7 +7,7 @@ import Button from "../../components/Button";
 
 const Album = () => {
   const params = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [albumInfo, setAlbuminfo] = useState([]);
   const [photos, setPhotos] = useState([]);
@@ -33,7 +33,7 @@ const Album = () => {
     setAlbuminfo(albumInfo);
   };
 
-  const handleBackButton = () => navigate(-1)
+  const handleBackButton = () => navigate(-1);
 
   return (
     <>
@@ -42,11 +42,12 @@ const Album = () => {
       <Header title="Album Photos" />
       <Button title="Back" onClick={handleBackButton} />
 
-      <h1>{albumInfo.title}</h1>
-
-      {photos.map((item, index) => (
-        <PhotoItem key={index} data={item} />
-      ))}
+      <h1 className="text-3xl my-6 text-center">{albumInfo.title}</h1>
+      <div className="grid gap-2 grid-cols-5">
+        {photos.map((item, index) => (
+          <PhotoItem key={index} data={item} />
+        ))}
+      </div>
     </>
   );
 };

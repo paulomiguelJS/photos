@@ -34,8 +34,8 @@ const Photo = () => {
           <Header title="Photos" />
           <Button title="Back" onClick={handleBackButton} />
 
-          <h1>{photo.title}</h1>
-          <img src={photo.url} alt={photo.title} />
+          <h1 className="text-3xl my-10 text-center">{photo.title}</h1>
+          <img className="m-auto" src={photo.url} alt={photo.title} />
         </>
       )}
     </>

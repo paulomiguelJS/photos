@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <>
       {loading && "Loading..."}
-      <Header title="Album Galery" />
+      <Header title="Albums" />
       {albums.map((item, index) => (
         <AlbumItem key={index} id={item.id} title={item.title} />
       ))}
